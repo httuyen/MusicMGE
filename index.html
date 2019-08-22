@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en-US" ng-app="getUsers">
+<!-- style sheet -->
+<!-- <link href="node_modules/angular-material-data-table/dist/md-data-table.min.css" rel="stylesheet" type="text/css" />
+<link href="node_modules/angular-material/angular-material.min.css" ref="stylesheet" type="text/css" /> -->
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.9/angular-material.css">
+<link rel="stylesheet" href="https://material.angularjs.org/1.1.20/docs.css" type="text/css">
+<!-- module -->
+<!-- <script type="text/javascript" src="node_modules/angular-material-data-table/dist/md-data-table.min.js"></script>
+<script type="text/javascript" src="node_modules/angular-material/angular-material.min.js"></script>
+<script type="text/javascript" src="node_modules/angular-resource/angular-resource.min.js"></script> -->
+
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular-messages.min.js"></script>
+    <script src="https://github.com/angular/material/blob/master/docs/app/svg-assets-cache.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>
+    <!-- Angular Material Library -->
+    <script src="https://gitcdn.xyz/cdn/angular/bower-material/v1.1.20/angular-material.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.20/angular-material.min.js"></script>
+
+    <md-toolbar class="md-menu-toolbar _md _md-toolbar-transitions md-has-open-menu">
+        <md-menu-bar>
+            <md-menu class="md-menu ng-scope _md">
+                <md-button ng-click="$mdMenu.open()" class="md-icon-button" aria-label="Open sample menu"> 
+                    Add
+                </md-button>
+                <md-menu-content class="md-menu-bar-menu md-dense" role="menu">
+                    <md-menu-item class="md-in-menu-bar">
+                        <md-button class="md-button md-ink-ripple" ng-click="doSomething()" role="menuitem">
+                            Share
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button class="md-button md-ink-ripple" role="menuitem">
+                            Open...
+                        </md-button>
+                    </md-menu-item>
+                </md-menu-content>
+                <md-button>
+                    User
+                </md-button>
+                <md-button>
+                    Help
+                </md-button>
+            </md-menu>
+        </md-menu-bar>
+    </md-toolbar>
+    <md-table-container>
+        <table md-table md-row-select multiple ng-model="selected" md-progress="promise">
+            <thead md-head>
+                <tr md-row>
+                    <th md-column>Username</th>
+                    <th md-column>Password</th>
+                    <th md-column>Name</th>
+                    <th md-column>Phone Number</th>
+                    <th md-column>Address</th>
+                    <th md-column>Email</th>
+                </tr>
+            </thead>
+            <tbody md-body ng-controller="getUsersCtrl">
+                <tr md-row md-auto-select ng-repeat="user in users">
+                    <td md-cell>{{user.username}}</td>
+                    <td md-cell>{{user.password}}</td>
+                    <td md-cell>{{user.name}}</td>
+                    <td md-cell>{{user.phone}}</td>
+                    <td md-cell>{{user.address}}</td>
+                    <td md-cell>{{user.email}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </md-table-container>
+    <script type="text/javascript" src="getUserController.js"></script>
+</body>
+
+</html>
