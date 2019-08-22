@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US" ng-app="getUsers">
+<html lang="en-US" ng-app="BlankApp">
 <!-- style sheet -->
 <!-- <link href="node_modules/angular-material-data-table/dist/md-data-table.min.css" rel="stylesheet" type="text/css" />
 <link href="node_modules/angular-material/angular-material.min.css" ref="stylesheet" type="text/css" /> -->
@@ -15,13 +15,18 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular-animate.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular-aria.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular-messages.min.js"></script>
-    <script src="https://github.com/angular/material/blob/master/docs/app/svg-assets-cache.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular-route.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
+=
     <!-- Angular Material Library -->
     <script src="https://gitcdn.xyz/cdn/angular/bower-material/v1.1.20/angular-material.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.20/angular-material.min.js"></script>
+
+    <script type="text/javascript">    
+        /**
+         * You must include the dependency on 'ngMaterial' 
+         */
+        angular.module('BlankApp', ['ngMaterial']);
+      </script>
 
     <md-toolbar class="md-menu-toolbar _md _md-toolbar-transitions md-has-open-menu">
         <md-menu-bar>
@@ -74,7 +79,7 @@
             </tbody>
         </table>
     </md-table-container>
-    <script type="text/javascript" src="getUserController.js"></script>
+    <!-- <script type="text/javascript" src="getUserController.js"></script> -->
 </body>
 
 </html>
