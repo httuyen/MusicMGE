@@ -10,13 +10,15 @@
 <script type="text/javascript" src="node_modules/angular-material/angular-material.min.js"></script>
 <script type="text/javascript" src="node_modules/angular-resource/angular-resource.min.js"></script> -->
 
-<body>
+<body ng-cloak>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular-animate.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular-aria.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular-messages.min.js"></script>
     <script src="https://github.com/angular/material/blob/master/docs/app/svg-assets-cache.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
     <!-- Angular Material Library -->
     <script src="https://gitcdn.xyz/cdn/angular/bower-material/v1.1.20/angular-material.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.20/angular-material.min.js"></script>
@@ -24,7 +26,7 @@
     <md-toolbar class="md-menu-toolbar _md _md-toolbar-transitions md-has-open-menu">
         <md-menu-bar>
             <md-menu class="md-menu ng-scope _md">
-                <md-button ng-click="$mdMenu.open()" class="md-icon-button" aria-label="Open sample menu"> 
+                <md-button ng-click="$mdMenu.open($event)" class="md-icon-button"> 
                     Add
                 </md-button>
                 <md-menu-content class="md-menu-bar-menu md-dense" role="menu">
