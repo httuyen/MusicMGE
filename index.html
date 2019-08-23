@@ -1,85 +1,136 @@
-<!DOCTYPE html>
-<html lang="en-US" ng-app="BlankApp">
-<!-- style sheet -->
-<!-- <link href="node_modules/angular-material-data-table/dist/md-data-table.min.css" rel="stylesheet" type="text/css" />
-<link href="node_modules/angular-material/angular-material.min.css" ref="stylesheet" type="text/css" /> -->
-  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.9/angular-material.css">
-<link rel="stylesheet" href="https://material.angularjs.org/1.1.20/docs.css" type="text/css">
-<!-- module -->
-<!-- <script type="text/javascript" src="node_modules/angular-material-data-table/dist/md-data-table.min.js"></script>
-<script type="text/javascript" src="node_modules/angular-material/angular-material.min.js"></script>
-<script type="text/javascript" src="node_modules/angular-resource/angular-resource.min.js"></script> -->
+<html lang="en">
 
-<body ng-cloak>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular-animate.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular-aria.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular-messages.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular-route.min.js"></script>
-=
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Angular Material style sheet -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.4/angular-material.css">
+    <link rel="stylesheet" href="a.css">
+    <link href="node_modules/angular-material-data-table/dist/md-data-table.min.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body ng-app="myApp" ng-cloak>
+    <!--
+    Your HTML content here
+  -->
+
+    <!-- Angular Material requires Angular.js Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+    <!-- Angular Material table-->
+    <script type="text/javascript" src="node_modules/angular-material-data-table/dist/md-data-table.min.js"></script>
     <!-- Angular Material Library -->
-    <script src="https://gitcdn.xyz/cdn/angular/bower-material/v1.1.20/angular-material.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.20/angular-material.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.4/angular-material.min.js"></script>
 
-    <script type="text/javascript">    
-        /**
-         * You must include the dependency on 'ngMaterial' 
-         */
-        angular.module('BlankApp', ['ngMaterial']);
-      </script>
+    <div ng-cloak="" class="menuBardemoBasicUsage">
+        <md-toolbar class="md-menu-toolbar">
+            <div layout="row">
+                <md-toolbar-filler layout="" layout-align="center center">
+                    <md-icon md-svg-icon="library_music"></md-icon>
+                </md-toolbar-filler>
+                <div>
+                    <h2 class="md-toolbar-tools">Music Manager</h2>
+                    <md-menu-bar>
+                        <md-menu>
+                            <md-button class="md-raised" ng-click="$mdMenu.open()">
+                                File
+                            </md-button>
+                            <md-menu-content>
+                                <md-menu-item>
+                                    <md-menu>
+                                        <md-button ng-click="$mdOpenMenu()">
+                                            Add
+                                        </md-button>
+                                        <md-menu-content>
+                                            <md-menu-item>
+                                                <md-button ng-click="ctrl.sampleAction('share', $event)">
+                                                    Add song
+                                                </md-button>
+                                            </md-menu-item>
+                                            <md-menu-item>
+                                                <md-button>
+                                                    Add category
+                                                </md-button>
+                                            </md-menu-item>
+                                        </md-menu-content>
+                                    </md-menu>
+                                </md-menu-item>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button>
+                                        Logout
+                                    </md-button>
+                                </md-menu-item>
+                            </md-menu-content>
+                        </md-menu>
+                        <md-menu>
+                            <md-button class="md-raised" ng-click="$mdOpenMenu()">
+                                User
+                            </md-button>
+                            <md-menu-content>
+                                <md-menu-item>
+                                    <md-button>
+                                        Update Infomation
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button>
+                                        Change Password
+                                    </md-button>
+                                </md-menu-item>
+                            </md-menu-content>
+                        </md-menu>
+                        <md-menu>
+                            <md-button class="md-raised" ng-click="$mdOpenMenu()">
+                                Help
+                            </md-button>
+                            <md-menu-content>
+                                <md-menu-item>
+                                    <md-button>
+                                        About
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button>
+                                        Feedback
+                                    </md-button>
+                                </md-menu-item>
+                            </md-menu-content>
+                        </md-menu>
+                    </md-menu-bar>
+                </div>
+            </div>
+        </md-toolbar>
+    </div>
+    <div>
+        <md-table-container>
+            <table md-table md-row-select multiple md-progress="promise">
+                <thead md-head>
+                    <tr md-row>
+                        <th md-column md-order-by="nameToLower">Name</th>
+                        <th md-column>Singer</th>
+                        <th md-column>Musican</th>
+                        <th md-column>Link</th>
+                        <th md-column>Date Create</th>
+                    </tr>
+                </thead>
+                <tbody md-body ng-controller="getSongsCtrl">
+                    <tr md-row md-auto-select ng-repeat="song in songs">
+                        <td md-cell>{{song.name}}</td>
+                        <td md-cell>{{song.singer}}</td>
+                        <td md-cell>{{song.musican}}</td>
+                        <td md-cell>{{song.link}}</td>
+                        <td md-cell>{{song.dateCreate}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </md-table-container>
+    </div>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="data/song/songController.js"></script>
+    <script type="text/javascript" src="data/user/userController.js"></script>
 
-    <md-toolbar class="md-menu-toolbar _md _md-toolbar-transitions md-has-open-menu">
-        <md-menu-bar>
-            <md-menu class="md-menu ng-scope _md">
-                <md-button ng-click="$mdMenu.open($event)" class="md-icon-button"> 
-                    Add
-                </md-button>
-                <md-menu-content class="md-menu-bar-menu md-dense" role="menu">
-                    <md-menu-item class="md-in-menu-bar">
-                        <md-button class="md-button md-ink-ripple" ng-click="doSomething()" role="menuitem">
-                            Share
-                        </md-button>
-                    </md-menu-item>
-                    <md-menu-item>
-                        <md-button class="md-button md-ink-ripple" role="menuitem">
-                            Open...
-                        </md-button>
-                    </md-menu-item>
-                </md-menu-content>
-                <md-button>
-                    User
-                </md-button>
-                <md-button>
-                    Help
-                </md-button>
-            </md-menu>
-        </md-menu-bar>
-    </md-toolbar>
-    <md-table-container>
-        <table md-table md-row-select multiple ng-model="selected" md-progress="promise">
-            <thead md-head>
-                <tr md-row>
-                    <th md-column>Username</th>
-                    <th md-column>Password</th>
-                    <th md-column>Name</th>
-                    <th md-column>Phone Number</th>
-                    <th md-column>Address</th>
-                    <th md-column>Email</th>
-                </tr>
-            </thead>
-            <tbody md-body ng-controller="getUsersCtrl">
-                <tr md-row md-auto-select ng-repeat="user in users">
-                    <td md-cell>{{user.username}}</td>
-                    <td md-cell>{{user.password}}</td>
-                    <td md-cell>{{user.name}}</td>
-                    <td md-cell>{{user.phone}}</td>
-                    <td md-cell>{{user.address}}</td>
-                    <td md-cell>{{user.email}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </md-table-container>
-    <!-- <script type="text/javascript" src="getUserController.js"></script> -->
 </body>
 
 </html>
