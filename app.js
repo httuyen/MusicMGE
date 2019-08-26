@@ -1,3 +1,1 @@
-angular.module('myApp', ['ngMaterial','ngMessages','md.data.table']);
-
-
+angular.module('myApp', ['ngMaterial', 'ngMessages', 'md.data.table']);
