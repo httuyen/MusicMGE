@@ -138,7 +138,7 @@
             </md-table-container>
         </div>
         <div>
-            <md-table-pagination md-limit=query.limit md-limit-options="limitOptions" md-page=query.page md-total="{{songs.length}}" md-page-select=options.pageSelect md-boundary-links=true md-on-paginate="logPagination"></md-table-pagination>
+            <md-table-pagination md-limit=query.limit md-limit-options="limitOptions" md-page=query.page md-total="{{songs.length}}" md-page-select=options.pageSelect md-boundary-links=options.boundaryLinks md-on-paginate="logPagination"></md-table-pagination>
         </div>
     </md-card>
     <script type="text/javascript" src="app.js"></script>

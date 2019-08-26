@@ -1,5 +1,5 @@
 angular.module('myApp')
-    .controller('getSongsCtrl', function ($scope, $http) {
+    .controller('getSongsCtrl', function($scope, $http) {
         $http({
             url: 'http://192.168.95.173:8089/song/getall',
             method: 'GET'
@@ -9,9 +9,9 @@ angular.module('myApp')
             console.log(ErrorEvent);
         });
         $scope.selected = [];
-        $scope.toggleLimitOptions = function () {
-            $scope.limitOptions = $scope.limitOptions ? undefined : [5, 10, 15];
-          };
+        $scope.toggleLimitOptions = function() {
+            $scope.limitOptions = $scope.limitOptions ? undefined : [10, 20, 30];
+        };
 
         $scope.options = {
             rowSelection: true,
@@ -19,13 +19,13 @@ angular.module('myApp')
             autoSelect: true,
             decapitate: false,
             largeEditDialog: false,
-            boundaryLinks: false,
+            boundaryLinks: true,
             limitSelect: true,
             pageSelect: true
         };
         $scope.query = {
             order: 'name',
-            limit: 5,
+            limit: 10,
             page: 1
         };
     });
