@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 
-<body>
+<body ng-app="myApp" ng-controller='getCategoriesCtrl'>
     <md-dialog>
         <md-dialog-content class="md-dialog-content">
             <h2 class="md-title">Add Song</h2>
@@ -32,7 +32,7 @@
                 <div class="input-row layout-row" layout="row">
                     <md-input-container>
                         <md-select ng-model="categories.category" placeholder="Category">
-                            <md-option ng-value="category" ng-repeat="category in getCategories()">{{category}}</md-option>
+                            <md-option ng-value="category" ng-repeat="category in categories">{{category.title}}</md-option>
                         </md-select>
                     </md-input-container>
                 </div>
@@ -54,7 +54,16 @@
                 </div>
             </form>
         </md-dialog-content>
+        <div class="md-actions">
+            <md-button class="md-primary md-button md-ink-ripple">
+                ADD SONG
+            </md-button>
+            <md-button class="md-primary md-button md-ink-ripple">
+                CANCEL
+            </md-button>
+        </div>
     </md-dialog>
+
 </body>
 
 </html>
