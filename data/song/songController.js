@@ -1,21 +1,10 @@
 angular.module('myApp')
-<<<<<<< HEAD
-.controller('getSongsCtrl',function($scope, $http){
-    $http({
-        url: 'http://127.0.0.1:8089/song/getall',
-        method: 'GET'
-    }).then(function successCallback(response) {
-        $scope.songs = response.data;
-    }, function errorCallback(error) {
-        console.log(ErrorEvent);
-    });
-});
-=======
-    .controller('getSongsCtrl', function($scope, $http, $timeout, $mdDialog) {
+
+    .controller('getSongsCtrl', function ($scope, $http, $timeout, $mdDialog) {
         'use strict';
         $scope.loadComplete = false;
         $http({
-            url: 'http://192.168.95.173:8089/song/getall',
+            url: 'https://musicsmanager.herokuapp.com/song/getall',
             method: 'GET'
         }).then(function successCallback(response) {
             $scope.songs = response.data;
@@ -45,15 +34,15 @@ angular.module('myApp')
             page: 1
         };
 
-        $scope.OpenTab = function(song) {
+        $scope.OpenTab = function (song) {
             window.open(song.link);
         }
-        $scope.loadStuff = function() {
-            $scope.promise = $timeout(function() {
+        $scope.loadStuff = function () {
+            $scope.promise = $timeout(function () {
                 // loading
             }, 2000);
         }
-        $scope.addSong = function(ev) {
+        $scope.addSong = function (ev) {
             $mdDialog.show({
                 clickOutsideToClose: true,
                 controller: 'getSongsCtrl',
@@ -64,4 +53,4 @@ angular.module('myApp')
             }).then($scope.getDesserts);
         };
     });
->>>>>>> 36c5a224d0e5e1c94e8e5d8594609e30c9264ae9
+
