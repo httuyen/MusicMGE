@@ -10,19 +10,40 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
-<body ng-app="myApp">
-    <div class="loginForm">
-        <md-content class="loginForm" md-whiteframe="10" layout="row" layout-align="center center">
-            <md-card>
-                <md-input-container>
-                    <label>username</label>
-                    <input md-input class="ng-pristine md-input ng-invalid ng-invalid-required ng-touched">
-                    <div class="md-errors-spacer">
-                        <div class="md-char-counter">0/20</div>
+<body ng-app="myApp" class="loginBG">
+    <div>
+        <div layout="column" layout-align="center center" class="wrap layout-align-center-center layout-column">
+            <div class="login-container layout-column" layout="column">
+                <div class="layout-gt-sm-row layout-column" layout-gt-sm="row" layout="column">
+                    <div class="login-leftpane layout-column flex-noshrink" layout="column" flex="noshrink">
+                        <h2>Login</h2>
                     </div>
-                </md-input-container>
-            </md-card>
-        </md-content>
+                    <div class="login-rightpane layout-column flex-noshrink" layout="column" flex="noshrink">
+                        <div>
+                            <form>
+                                <md-input-container class="md-block md-input-invalid">
+                                    <label class="md-required">
+                                    Username
+                                </label>
+                                    <input class="ng-pristine md-input ng-empty ng-invalid ng-invalid-required ng-touched">
+                                    <div class="md-errors-spacer"></div>
+                                </md-input-container>
+                                <md-input-container class="md-block md-input-invalid">
+                                    <label class="md-required">
+                                        Password
+                                    </label>
+                                    <input class="ng-pristine md-input ng-empty ng-invalid ng-invalid-required ng-touched">
+                                    <div class="md-errors-spacer"></div>
+                                </md-input-container>
+                                <md-button class="md-raised md-primary login-btn md-button md-ink-ripple">
+                                    <span>Sign In</span>
+                                </md-button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- <md-button class="md-raised">
             <a href="/MusicMGE/index.html">Log In</a>

@@ -11,6 +11,36 @@
 
 .loginForm {
     padding-top: 100px;
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 300px;
+    padding-right: 300px;
+    padding-bottom: 1000px
+}
+
+.loginBG {
+    background-image: url('data/pictures/bg.png');
+    background-size: cover;
+}
+
+.login-rightpane {
+    width: 400px;
+    background: #fff;
+    padding: 24px 48px;
+}
+
+.login-leftpane {
+    width: 300px;
+    background-color: rgba(18, 65, 145, 0.7);
+    padding: 42px 34px 34px;
+    box-sizing: border-box;
+    color: #fff;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+}
+
+.wrap {
+    margin: auto;
+    width: 100%;
 }
