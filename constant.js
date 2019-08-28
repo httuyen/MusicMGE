@@ -1,1 +1,0 @@
-$scope.path = 'http://localhost:8089/';

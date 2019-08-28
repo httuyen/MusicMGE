@@ -8,3 +8,9 @@
 .md-toolbar-tools .layout-row .custom {
     background-color: rgb(155, 156, 165);
 }
+
+.loginForm {
+    padding-top: 100px;
+    padding-left: 100px;
+    padding-right: 100px;
+}

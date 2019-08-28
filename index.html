@@ -1,6 +1,7 @@
 <html lang="en" ng-app="myApp">
 
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Angular Material style sheet -->
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.4/angular-material.css">
@@ -10,83 +11,87 @@
 </head>
 
 <body layout="column" ng-controller="getSongsCtrl">
-    <md-toolbar class="md-menu-toolbar">
-        <div layout="row">
-            <md-toolbar-filler layout="" layout-align="center center">
+    <md-toolbar class="md-hue-1">
+        <!-- <div layout="row"> -->
+        <!-- <md-toolbar-filler layout="" layout-align="center center">
                 <md-icon ng-bind="'library_music'"></md-icon>
-            </md-toolbar-filler>
-            <div>
-                <h2 class="md-toolbar-tools">Music Manager</h2>
-                <md-menu-bar layout="row">
-                    <md-menu>
-                        <md-button ng-click="$mdMenu.open()">
-                            File
-                        </md-button>
-                        <md-menu-content>
-                            <md-menu-item>
-                                <md-menu>
-                                    <md-button ng-click="$mdMenu.open()">
-                                        Add
-                                    </md-button>
-                                    <md-menu-content>
-                                        <md-menu-item>
-                                            <md-button ng-click="addSong($event)">
-                                                Add song
-                                            </md-button>
-                                        </md-menu-item>
-                                        <md-menu-item>
-                                            <md-button>
-                                                Add category
-                                            </md-button>
-                                        </md-menu-item>
-                                    </md-menu-content>
-                                </md-menu>
-                            </md-menu-item>
-                            </md-menu-item>
-                            <md-menu-item>
-                                <md-button>
-                                    Logout
-                                </md-button>
-                            </md-menu-item>
-                        </md-menu-content>
-                    </md-menu>
-                    <md-menu>
-                        <md-button ng-click="$mdMenu.open()">
-                            User
-                        </md-button>
-                        <md-menu-content>
-                            <md-menu-item>
-                                <md-button>
-                                    Update Infomation
-                                </md-button>
-                            </md-menu-item>
-                            <md-menu-item>
-                                <md-button>
-                                    Change Password
-                                </md-button>
-                            </md-menu-item>
-                        </md-menu-content>
-                    </md-menu>
-                    <md-menu>
-                        <md-button ng-click="$mdMenu.open()">
-                            Help
-                        </md-button>
-                        <md-menu-content>
-                            <md-menu-item>
-                                <md-button>
-                                    About
-                                </md-button>
-                            </md-menu-item>
-                            <md-menu-item>
-                                <md-button>
-                                    Feedback
-                                </md-button>
-                            </md-menu-item>
-                        </md-menu-content>
-                    </md-menu>
-                </md-menu-bar>
+            </md-toolbar-filler> -->
+        <div layout="row">
+            <div layout="row">
+                <md-icon ng-bind="'library_music'" layout-align="center center" style="padding-left: 15px; padding-right: 15px"></md-icon>
+                <md-title class="md-toolbar-tools">Music Manager</md-title>
             </div>
+            <div flex></div>
+            <md-menu-bar layout="row">
+                <md-menu>
+                    <md-button ng-click="$mdMenu.open()">
+                        File
+                    </md-button>
+                    <md-menu-content>
+                        <md-menu-item>
+                            <md-menu>
+                                <md-button ng-click="$mdMenu.open()">
+                                    Add
+                                </md-button>
+                                <md-menu-content>
+                                    <md-menu-item>
+                                        <md-button ng-click="addSong($event)">
+                                            Add song
+                                        </md-button>
+                                    </md-menu-item>
+                                    <md-menu-item>
+                                        <md-button>
+                                            Add category
+                                        </md-button>
+                                    </md-menu-item>
+                                </md-menu-content>
+                            </md-menu>
+                        </md-menu-item>
+                        </md-menu-item>
+                        <md-menu-item ng-controller="logOutCtrl">
+                            <md-button ng-click="login()">
+                                Logout
+                            </md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+                <md-menu>
+                    <md-button ng-click="$mdMenu.open()">
+                        User
+                    </md-button>
+                    <md-menu-content>
+                        <md-menu-item>
+                            <md-button>
+                                Update Infomation
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button>
+                                Change Password
+                            </md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+                <md-menu>
+                    <md-button ng-click="$mdMenu.open()">
+                        Help
+                    </md-button>
+                    <md-menu-content>
+                        <md-menu-item>
+                            <md-button>
+                                About
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button>
+                                Feedback
+                            </md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+            </md-menu-bar>
         </div>
+        <!-- </div> -->
     </md-toolbar>
     <md-content layout="column">
         <md-toolbar class="md-toolbar-tools">
@@ -99,11 +104,12 @@
                 </h2>
             </div>
         </md-toolbar>
-        <md-progress-linear ng-if="loadComplete" md-mode="query" md-progress="promise"></md-progress-linear>
+        <!-- <md-progress-linear ng-if="loadComplete" md-mode="query" md-progress="promise"></md-progress-linear> -->
         <md-content layout="column" ng-controller="getSongsCtrl">
             <md-card>
                 <md-table-container>
-                    <table md-table md-row-select=true multiple=true ng-model="selected" md-progress="promise">
+                    <!-- md-row-select=true multiple=true ng-model="selected"  -->
+                    <table md-table md-progress="promise">
                         <thead md-head>
                             <tr md-row>
                                 <th md-column md-order-by="nameToLower">Name</th>
@@ -116,8 +122,8 @@
                             </tr>
                         </thead>
                         <tbody md-body>
-                            <tr md-select="name" md-row md-auto-select="options.autoSelect" ng-repeat="song in songs | filter:{name:searchText} | orderBy: query.order | limitTo: query.limit : (query.page -1) * query.limit">
-                                <td md-cell>{{song.name}}</td>
+                            <tr md-select="name" md-row ng-repeat="song in songs | filter:{name:searchText} | orderBy: query.order | limitTo: query.limit : (query.page -1) * query.limit">
+                                <td md-cell ng-click="OpenTab(song)">{{song.name}}</td>
                                 <td md-cell>{{song.singer}}</td>
                                 <td md-cell>{{song.musican}}</td>
                                 <td md-cell ng-click="OpenTab(song)">{{song.link}}</td>
@@ -148,6 +154,7 @@
     <script type="text/javascript " src="data/song/songController.js "></script>
     <script type="text/javascript " src="data/user/userController.js "></script>
     <script type="text/javascript" src="data/category/categoryController.js"></script>
+    <script type="text/javascript" src="data/module/logOut.js"></script>
 </body>
 
 </html>

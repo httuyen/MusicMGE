@@ -10,3 +10,13 @@ angular.module('myApp')
             console.log(ErrorEvent);
         });
     });
+// var getCate = function() {
+//     $http({
+//         url: 'https://musicsmanager.herokuapp.com/category/getall',
+//         method: 'GET'
+//     }).then(function successCallback(response) {
+//         $scope.categories = response.data;
+//     }, function errorCallback(error) {
+//         console.log(ErrorEvent);
+//     });
+// };
