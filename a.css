@@ -28,7 +28,7 @@
 }
 
 .login-leftpane {
-    width: 300px;
+    width: 400px;
     background-color: rgba(18, 65, 145, 0.7);
     padding: 42px 34px 34px;
     box-sizing: border-box;
@@ -42,5 +42,16 @@
 
 .wrap {
     margin: auto;
+    width: 100%;
+}
+
+.layout-gt-sm-row {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+
+.login-btn {
     width: 100%;
 }
