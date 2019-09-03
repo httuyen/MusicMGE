@@ -11,22 +11,17 @@
 <body>
     <md-dialog>
         <md-dialog-content class="md-dialog-content">
-            <h2 class="md-title">Add Song</h2>
-            <form layout="column">
+            <h2 class="md-title" layout="row" layout-align="center center">Add Song</h2>
+            <form layout="column" class="ng-invalid ng-invalid-required ng-valid-min ng-valid-max ng-dirty ng-valid-parse ng-valid-md-maxlength">
                 <div class="input-row layout-row" layout="row">
                     <md-input-container>
-                        <label>Song name</label>
-                        <input md-input class="ng-pristine md-input ng-invalid ng-invalid-required ng-touched">
-                        <div class="md-errors-spacer">
-                            <div class="md-char-counter">0/20</div>
-                        </div>
+                        <label class="md-required">Song name</label>
+                        <input md-input ng-model="song.name" class="ng-pristine md-input ng-invalid ng-invalid-required" md-maxlength="20">
+
                     </md-input-container>
                     <md-input-container>
                         <label>Singer</label>
-                        <input md-input>
-                        <div class="md-errors-spacer">
-                            <div class="md-char-counter">0/20</div>
-                        </div>
+                        <input md-input ng-model="song.singer" class="ng-pristine md-input ng-invalid ng-invalid-required" md-maxlength="20">
                     </md-input-container>
                 </div>
                 <div class="input-row layout-row" layout="row">
@@ -39,17 +34,11 @@
                 <div class="input-row layout-row" layout="row">
                     <md-input-container>
                         <label>Musican</label>
-                        <input md-input class="ng-pristine md-input ng-invalid ng-invalid-required ng-touched">
-                        <div class="md-errors-spacer">
-                            <div class="md-char-counter">0/20</div>
-                        </div>
+                        <input md-input ng-model="song.musican" class="ng-pristine md-input ng-invalid ng-invalid-required" md-maxlength="20">
                     </md-input-container>
                     <md-input-container>
-                        <label>Link</label>
-                        <input md-input class="ng-pristine md-input ng-invalid ng-invalid-required ng-touched">
-                        <div class="md-errors-spacer">
-                            <div class="md-char-counter">0/20</div>
-                        </div>
+                        <label class="md-required">Link</label>
+                        <input md-input ng-model="song.link" class="ng-pristine md-input ng-invalid ng-invalid-required">
                     </md-input-container>
                 </div>
             </form>

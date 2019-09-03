@@ -21,6 +21,14 @@
                 <md-icon ng-bind="'library_music'" layout-align="center center" style="padding-left: 15px; padding-right: 15px"></md-icon>
                 <md-title class="md-toolbar-tools">Music Manager</md-title>
             </div>
+            <div layout="row">
+                <md-toolbar-filler layout="row">
+                    <md-icon ng-bind="'search'"></md-icon>
+                </md-toolbar-filler>
+                <h2 class="md-toolbar-tools">
+                    <input id="inputSearch" ng-model="searchText" placeholder="search" class="ng-valid ng-touched ng-dirty ng-valid-parse">
+                </h2>
+            </div>
             <div flex></div>
             <md-menu-bar layout="row">
                 <md-menu>
@@ -94,22 +102,31 @@
         <!-- </div> -->
     </md-toolbar>
     <md-content layout="column">
-        <md-toolbar class="md-toolbar-tools">
-            <div layout="row">
-                <md-toolbar-filler layout="row">
-                    <md-icon ng-bind="'search'"></md-icon>
-                </md-toolbar-filler>
-                <h2 class="md-toolbar-tools">
-                    <input id="inputSearch" ng-model="searchText" placeholder="search" class="ng-valid ng-touched ng-dirty ng-valid-parse">
-                </h2>
-            </div>
-        </md-toolbar>
         <!-- <md-progress-linear ng-if="loadComplete" md-mode="query" md-progress="promise"></md-progress-linear> -->
         <md-content layout="column" ng-controller="getSongsCtrl">
             <md-card>
+                <md-toolbar class="md-table-toolbar md-default" ng-hide="options.rowSelection && selected.length">
+                    <div class="md-toolbar-tools">
+                        <span>List Music</span>
+                        <div flex></div>
+                        <md-button class="md-icon-button" ng-click="loadStuff()">
+                            <md-icon>refresh</md-icon>
+                        </md-button>
+                    </div>
+                </md-toolbar>
+                <md-toolbar class="" ng-show="options.rowSelection && selected.length" layout="row">
+                    <div class="md-toolbar-tools">
+                        <!-- <span>{{selected.length}} {{selected.length > 1 ? 'items' : 'item'}} selected</span> -->
+                        <span>{{items[0].name}} selected</span>
+                        <div flex></div>
+                        <md-button class="md-icon-button" ng-click="deleteItem()">
+                            <md-icon>delete</md-icon>
+                        </md-button>
+                    </div>
+                </md-toolbar>
                 <md-table-container>
                     <!-- md-row-select=true multiple=true ng-model="selected"  -->
-                    <table md-table md-progress="promise">
+                    <table md-table md-progress="promise" md-row-select="options.rowSelection" ng-model="selected">
                         <thead md-head>
                             <tr md-row>
                                 <th md-column md-order-by="nameToLower">Name</th>
@@ -117,12 +134,13 @@
                                 <th md-column>Musican</th>
                                 <th md-column>
                                     <md-icon ng-bind="'link'"></md-icon>
-                                    Link</th>
+                                    Link
+                                </th>
                                 <th md-column>Date Create</th>
                             </tr>
                         </thead>
                         <tbody md-body>
-                            <tr md-select="name" md-row ng-repeat="song in songs | filter:{name:searchText} | orderBy: query.order | limitTo: query.limit : (query.page -1) * query.limit">
+                            <tr md-select="song" md-row md-on-select="logItem" ng-model="items" md-auto-select="options.autoSelect" ng-repeat="song in songs | filter:{name:searchText} | orderBy: query.order | limitTo: query.limit : (query.page -1) * query.limit">
                                 <td md-cell ng-click="OpenTab(song)">{{song.name}}</td>
                                 <td md-cell>{{song.singer}}</td>
                                 <td md-cell>{{song.musican}}</td>
@@ -137,7 +155,6 @@
                 </div>
             </md-card>
         </md-content>
-
     </md-content>
 
     <!-- Angular Material requires Angular.js Libraries -->

@@ -1,10 +1,20 @@
 angular.module('myApp')
 
-.controller('getSongsCtrl', function($scope, $http, $timeout, $mdDialog) {
+.controller('getSongsCtrl', function($scope, $http, $timeout, $mdDialog, $q) {
     'use strict';
     $scope.loadComplete = false;
+    $scope.items = [];
+    $scope.logItem = function(item) {
+        $scope.items.push(item);
+        console.log(item.name, 'was selected');
+    };
     $http({
         url: 'https://musicsmanager.herokuapp.com/song/getall',
+        //url: 'http://192.168.95.173:8089/song/getall',
+        // auth: {
+        //     'user': 'adminuser',
+        //     'pass': 'password'
+        // },
         method: 'GET'
     }).then(function successCallback(response) {
         $scope.songs = response.data;
@@ -12,6 +22,22 @@ angular.module('myApp')
     }, function errorCallback(error) {
         console.log(ErrorEvent);
     });
+
+    $scope.deleteItem = function() {
+        console.log($scope.items[$scope.items.length - 1].id);
+        $http({
+                method: 'DELETE',
+                url: 'https://musicsmanager.herokuapp.com/song/delete/' + $scope.items[$scope.items.length - 1].id,
+                headers: {
+                    'Content-type': 'application/json;charset=utf-8'
+                }
+            })
+            .then(function(response) {
+                console.log("Delete complete");
+            }, function(rejection) {
+                console.log("Delete fail");
+            });
+    }
     $scope.selected = [];
     $scope.limitOptions = [10, 20, 30];
     // $scope.toggleLimitOptions = function() {
@@ -54,4 +80,11 @@ angular.module('myApp')
     $scope.getSongs = function() {
         $scope.promise = $nutrition.desserts.get($scope.query, success).$promise;
     };
+
+    var deferred = $q.defer();
+    $scope.promise = deferred.promise;
+    deferred.resolve();
+
+
+
 });
